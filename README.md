@@ -17,11 +17,11 @@ python -m http.server 8765 --directory .
 `http://127.0.0.1:8765/?demo` — 로그인 없이 샘플 덱(2022-04-24)으로 화면 확인.
 
 ## Google 로그인 준비 (한 번만)
-계정: gms352242058 (Drive 폴더가 있는 계정)
+계정: Drive 폴더가 있는 본인 계정
 1. console.cloud.google.com → 프로젝트 `odap-note-pwa` 만들기 (**결제 계정은 연결하지 않기**)
 2. API 및 서비스 → 라이브러리 → **Google Drive API** 사용
 3. OAuth 동의 화면: 앱 이름 `오답노트`, 사용자 유형 **외부**, 지원 이메일/개발자 이메일 입력,
-   범위에 `.../auth/drive` 추가, **테스트 사용자에 본인 계정(gms352242058) 추가**
+   범위에 `.../auth/drive` 추가, **테스트 사용자에 본인 계정 추가**
 4. 사용자 인증 정보 → OAuth 클라이언트 ID 만들기 → 유형 **웹 애플리케이션**
    - 승인된 JavaScript 원본: 호스팅 주소 (예: `https://<아이디>.github.io`), 로컬 테스트용 `http://127.0.0.1:8765`
 5. 발급된 **클라이언트 ID**(…apps.googleusercontent.com)를 앱 첫 화면에 붙여넣고 로그인
