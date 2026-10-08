@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#141211">
+<title>오답노트</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline' https://accounts.google.com; font-src 'self'; script-src 'self' https://accounts.google.com; connect-src 'self' https://www.googleapis.com https://accounts.google.com; frame-src https://accounts.google.com; manifest-src 'self'">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="katex/katex.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="drag-strip"><span class="logo">⚡</span></div>
+    <div class="search"><input id="search" placeholder="문제 검색" autocomplete="off"></div>
+    <nav id="nav"></nav>
+    <div class="side-foot">
+      <label class="toggle-row"><span>🌙 다크 모드</span><span class="switch"><input type="checkbox" id="dark"><i></i></span></label>
+      <button class="ghost" id="reload">↻ 새로고침</button>
+    </div>
+  </aside>
+  <div class="side-scrim" id="sideScrim"></div>
+  <main class="main">
+    <div class="drag-strip main-drag"></div>
+    <header class="head">
+      <button class="ghost menu-btn" id="menu" aria-label="메뉴">☰</button>
+      <div>
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+      </div>
+      <div class="head-actions">
+        <button class="ghost" id="startSolve">▶ 이 목록 풀이 시작</button>
+      </div>
+    </header>
+    <div class="filters" id="filters"></div>
+    <section class="grid" id="grid"></section>
+  </main>
+</div>
+<div class="scrim" id="scrim" hidden>
+  <div class="modal" id="modal"></div>
+</div>
+<script src="katex/katex.min.js"></script>
+<script src="katex/contrib/auto-render.min.js"></script>
+<script src="web-api.js"></script>
+<script src="renderer.js"></script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});</script>
+</body>
+</html>
