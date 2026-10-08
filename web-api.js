@@ -65,7 +65,9 @@
   })();
 
   // ---------- Google 로그인 (토큰만 사용, 서버 없음) ----------
-  const getCid = () => localStorage.getItem('odap.cid') || '';
+  // 클라이언트 ID는 공개 값이다(보안 비밀 아님). 기본값을 넣어 두면 폰에서 붙여넣을 필요가 없다.
+  const DEFAULT_CID = '520643851637-pfrrpdjfn1p3e5dp12r2v2eln7tblukp.apps.googleusercontent.com';
+  const getCid = () => localStorage.getItem('odap.cid') || DEFAULT_CID;
   let tok = null;
   try { tok = JSON.parse(localStorage.getItem('odap.tok')); } catch { /* 첫 실행 */ }
   const tokOk = () => tok && tok.exp > Date.now() + 60000;
