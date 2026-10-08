@@ -1,5 +1,5 @@
 // 앱 화면(HTML/JS/CSS)만 캐시한다. 덱·이미지·풀이 기록은 web-api.js가 IndexedDB에 따로 캐시한다.
-const V = 'odap-v1';
+const V = 'odap-v2';
 const SHELL = ['./', 'index.html', 'renderer.js', 'web-api.js', 'styles.css', 'manifest.webmanifest',
   'katex/katex.min.css', 'katex/katex.min.js', 'katex/contrib/auto-render.min.js', 'icons/icon-192.png'];
 

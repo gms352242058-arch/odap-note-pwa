@@ -105,15 +105,17 @@
       el.className = 'login';
       el.innerHTML = `<div class="login-box"><h2>⚡ 오답노트</h2>
         <p>Google Drive의 '${FOLDER_NAME}' 폴더와 연결합니다.</p>
-        <label>OAuth 클라이언트 ID<input id="cid" placeholder="123456-abc.apps.googleusercontent.com" autocomplete="off"></label>
+        ${DEFAULT_CID ? '' : '<label>OAuth 클라이언트 ID<input id="cid" placeholder="123456-abc.apps.googleusercontent.com" autocomplete="off"></label>'}
         <button class="primary" id="go">Google로 로그인</button><p class="err" id="err"></p></div>`;
       document.body.appendChild(el);
-      const err = el.querySelector('#err'), cid = el.querySelector('#cid');
-      cid.value = getCid();
+      const err = el.querySelector('#err'), cid = el.querySelector('#cid'); // 기본 ID가 있으면 입력란이 없다
+      if (cid) cid.value = getCid();
       if (msg) err.textContent = msg;
       el.querySelector('#go').onclick = async () => {
-        if (!cid.value.trim()) { err.textContent = '클라이언트 ID를 입력하세요'; return; }
-        localStorage.setItem('odap.cid', cid.value.trim());
+        if (cid) {
+          if (!cid.value.trim()) { err.textContent = '클라이언트 ID를 입력하세요'; return; }
+          localStorage.setItem('odap.cid', cid.value.trim());
+        }
         try { const t = await requestToken(''); el.remove(); resolve(t); } catch (e) { err.textContent = '로그인 실패: ' + e.message; }
       };
     });
